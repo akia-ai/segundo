@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Segundo | Luxury Boutique Hotel in San Diego</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#C9A962',
+                        'gold-dark': '#B8954F',
+                        'navy': '#1a1f2e',
+                        'navy-light': '#252b3d',
+                    },
+                    fontFamily: {
+                        'serif': ['Cormorant Garamond', 'serif'],
+                        'sans': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(26, 31, 46, 0.9) 0%, rgba(26, 31, 46, 0.7) 100%);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #C9A962 0%, #E8D5A3 50%, #C9A962 100%);
+        }
+    </style>
+</head>
+<body class="bg-navy text-white font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-navy/95 backdrop-blur-sm border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="font-serif text-3xl font-light tracking-wider">
+                    <span class="text-gold">HOTEL</span> SEGUNDO
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#rooms" class="text-sm tracking-widest hover:text-gold transition-colors">ROOMS</a>
+                    <a href="#amenities" class="text-sm tracking-widest hover:text-gold transition-colors">AMENITIES</a>
+                    <a href="#dining" class="text-sm tracking-widest hover:text-gold transition-colors">DINING</a>
+                    <a href="#location" class="text-sm tracking-widest hover:text-gold transition-colors">LOCATION</a>
+                    <a href="#" onclick="openBooking()" class="px-6 py-2 bg-gold text-navy text-sm tracking-widest hover:bg-gold-dark transition-colors">BOOK NOW</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen">
+        <div class="absolute inset-0">
+            <img src="images/hero-exterior.jpg" alt="Hotel Segundo Exterior" class="w-full h-full object-cover">
+            <div class="hero-gradient absolute inset-0"></div>
+        </div>
+        <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
+            <p class="text-gold tracking-[0.3em] text-sm mb-4">SAN DIEGO'S FINEST</p>
+            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6">
+                Experience <span class="italic">Luxury</span>
+            </h1>
+            <p class="text-white/70 text-lg max-w-2xl mb-12">
+                Nestled in the heart of San Diego's vibrant Gaslamp Quarter, Hotel Segundo offers an unparalleled blend of timeless elegance and modern sophistication.
+            </p>
+
+            <!-- Booking Widget -->
+            <div class="bg-navy-light/90 backdrop-blur-sm p-8 rounded-sm border border-white/10 w-full max-w-4xl">
+                <form id="bookingForm" class="flex flex-col md:flex-row gap-6 items-end">
+                    <div class="w-full md:w-40">
+                        <label class="block text-xs tracking-widest text-gold mb-2">ARRIVAL</label>
+                        <input type="date" id="arrivalDate" required
+                            class="w-full bg-navy border border-white/20 px-4 py-3 text-white focus:border-gold outline-none transition-colors">
+                    </div>
+                    <div class="w-full md:w-40">
+                        <label class="block text-xs tracking-widest text-gold mb-2">DEPARTURE</label>
+                        <input type="date" id="departureDate" required
+                            class="w-full bg-navy border border-white/20 px-4 py-3 text-white focus:border-gold outline-none transition-colors">
+                    </div>
+                    <div class="w-full md:w-56">
+                        <label class="block text-xs tracking-widest text-gold mb-2">GUESTS</label>
+                        <select class="w-full bg-navy border border-white/20 px-4 py-3 text-white focus:border-gold outline-none transition-colors">
+                            <option>1 Guest</option>
+                            <option selected>2 Guests</option>
+                            <option>3 Guests</option>
+                            <option>4 Guests</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full md:w-auto px-12 py-3 bg-gold text-navy font-medium tracking-widest hover:bg-gold-dark transition-colors">
+                        CHECK AVAILABILITY
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <p class="text-gold tracking-[0.3em] text-sm mb-4">WELCOME TO</p>
+                    <h2 class="font-serif text-4xl md:text-5xl font-light mb-6">Hotel Segundo</h2>
+                    <div class="w-20 h-px bg-gold mb-8"></div>
+                    <p class="text-white/70 leading-relaxed mb-6">
+                        Since 1924, Hotel Segundo has been San Diego's most distinguished address. Our historic building, lovingly restored to its original grandeur, offers guests an escape into a world of refined elegance.
+                    </p>
+                    <p class="text-white/70 leading-relaxed mb-8">
+                        Every detail has been carefully curated to create an atmosphere of understated luxury, from our hand-selected artworks to our bespoke furnishings crafted by local artisans.
+                    </p>
+                    <a href="#rooms" class="inline-flex items-center text-gold tracking-widest text-sm hover:text-gold-dark transition-colors">
+                        EXPLORE OUR ROOMS
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="images/lobby.jpg" alt="Hotel Lobby" class="w-full h-64 object-cover">
+                    <img src="images/detail.webp" alt="Hotel Detail" class="w-full h-64 object-cover mt-8">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="py-24 px-6 bg-navy-light">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="text-gold tracking-[0.3em] text-sm mb-4">ACCOMMODATIONS</p>
+                <h2 class="font-serif text-4xl md:text-5xl font-light">Our Rooms & Suites</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Room 1 -->
+                <div class="group">
+                    <div class="relative overflow-hidden mb-6">
+                        <img src="images/deluxe-room.jpg" alt="Deluxe Room" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-gold text-navy px-3 py-1 text-xs tracking-widest">FROM $450</div>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-2">Deluxe Room</h3>
+                    <p class="text-white/60 text-sm mb-4">450 sq ft | King Bed | City View</p>
+                    <p class="text-white/70 text-sm leading-relaxed mb-4">
+                        Elegant comfort with panoramic views of downtown San Diego. Features Italian linens and a marble bathroom.
+                    </p>
+                    <a href="#" onclick="openBooking()" class="text-gold text-sm tracking-widest hover:text-gold-dark transition-colors">BOOK NOW</a>
+                </div>
+
+                <!-- Room 2 -->
+                <div class="group">
+                    <div class="relative overflow-hidden mb-6">
+                        <img src="images/premier-suite.jpg" alt="Premier Suite" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-gold text-navy px-3 py-1 text-xs tracking-widest">FROM $750</div>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-2">Premier Suite</h3>
+                    <p class="text-white/60 text-sm mb-4">720 sq ft | King Bed | Ocean View</p>
+                    <p class="text-white/70 text-sm leading-relaxed mb-4">
+                        Spacious living area with separate bedroom, offering stunning Pacific Ocean views from your private balcony.
+                    </p>
+                    <a href="#" onclick="openBooking()" class="text-gold text-sm tracking-widest hover:text-gold-dark transition-colors">BOOK NOW</a>
+                </div>
+
+                <!-- Room 3 -->
+                <div class="group">
+                    <div class="relative overflow-hidden mb-6">
+                        <img src="images/presidential-suite.jpg" alt="Presidential Suite" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-gold text-navy px-3 py-1 text-xs tracking-widest">FROM $1,500</div>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-2">Presidential Suite</h3>
+                    <p class="text-white/60 text-sm mb-4">1,400 sq ft | King Bed | Panoramic View</p>
+                    <p class="text-white/70 text-sm leading-relaxed mb-4">
+                        The pinnacle of luxury with wrap-around terrace, grand piano, and dedicated butler service.
+                    </p>
+                    <a href="#" onclick="openBooking()" class="text-gold text-sm tracking-widest hover:text-gold-dark transition-colors">BOOK NOW</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section id="amenities" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="text-gold tracking-[0.3em] text-sm mb-4">EXPERIENCES</p>
+                <h2 class="font-serif text-4xl md:text-5xl font-light">Hotel Amenities</h2>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center p-8 border border-white/10 hover:border-gold/50 transition-colors">
+                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl mb-2">Rooftop Pool</h3>
+                    <p class="text-white/60 text-sm">Infinity pool with bay views</p>
+                </div>
+
+                <div class="text-center p-8 border border-white/10 hover:border-gold/50 transition-colors">
+                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl mb-2">Spa & Wellness</h3>
+                    <p class="text-white/60 text-sm">Full-service luxury spa</p>
+                </div>
+
+                <div class="text-center p-8 border border-white/10 hover:border-gold/50 transition-colors">
+                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl mb-2">Concierge</h3>
+                    <p class="text-white/60 text-sm">24/7 personal service</p>
+                </div>
+
+                <div class="text-center p-8 border border-white/10 hover:border-gold/50 transition-colors">
+                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl mb-2">Live Music</h3>
+                    <p class="text-white/60 text-sm">Nightly jazz performances</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dining Section -->
+    <section id="dining" class="py-24 px-6 bg-navy-light">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1">
+                    <img src="images/restaurant.jpg" alt="Oro Restaurant" class="w-full h-96 object-cover">
+                </div>
+                <div class="order-1 md:order-2">
+                    <p class="text-gold tracking-[0.3em] text-sm mb-4">CULINARY</p>
+                    <h2 class="font-serif text-4xl md:text-5xl font-light mb-6">Oro Restaurant</h2>
+                    <div class="w-20 h-px bg-gold mb-8"></div>
+                    <p class="text-white/70 leading-relaxed mb-6">
+                        Executive Chef Maria Santos brings California coastal cuisine to new heights at Oro. Featuring locally-sourced ingredients from San Diego's finest farms and fisheries.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex justify-between border-b border-white/10 pb-2">
+                            <span class="text-white/60">Breakfast</span>
+                            <span>7:00 AM - 11:00 AM</span>
+                        </div>
+                        <div class="flex justify-between border-b border-white/10 pb-2">
+                            <span class="text-white/60">Lunch</span>
+                            <span>12:00 PM - 3:00 PM</span>
+                        </div>
+                        <div class="flex justify-between border-b border-white/10 pb-2">
+                            <span class="text-white/60">Dinner</span>
+                            <span>6:00 PM - 11:00 PM</span>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-flex items-center text-gold tracking-widest text-sm hover:text-gold-dark transition-colors">
+                        VIEW MENU
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="text-gold tracking-[0.3em] text-sm mb-4">LOCATION</p>
+                <h2 class="font-serif text-4xl md:text-5xl font-light">San Diego's Premier Address</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center">
+                    <h3 class="font-serif text-xl mb-2 text-gold">Gaslamp Quarter</h3>
+                    <p class="text-white/60 text-sm">Steps from world-class dining, shopping, and entertainment</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="font-serif text-xl mb-2 text-gold">Waterfront</h3>
+                    <p class="text-white/60 text-sm">Walking distance to the San Diego Bay and Embarcadero</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="font-serif text-xl mb-2 text-gold">Convention Center</h3>
+                    <p class="text-white/60 text-sm">Minutes from the San Diego Convention Center</p>
+                </div>
+            </div>
+
+            <div class="bg-navy-light p-4">
+                <img src="images/map.png" alt="Hotel Location Map" class="w-full h-64 object-cover">
+            </div>
+
+            <div class="text-center mt-8">
+                <p class="font-serif text-xl mb-2">789 Pacific Boulevard</p>
+                <p class="text-white/60">San Diego, California 92101</p>
+                <p class="text-gold mt-2">(619) 555-LUXE</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 px-6 bg-navy-light">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-gold tracking-[0.3em] text-sm mb-4">BOOK YOUR STAY</p>
+            <h2 class="font-serif text-4xl md:text-5xl font-light mb-6">Begin Your Journey</h2>
+            <p class="text-white/70 mb-8 max-w-2xl mx-auto">
+                Experience the timeless elegance of Hotel Segundo. Let us create unforgettable moments during your San Diego visit.
+            </p>
+            <a href="#" onclick="openBooking()" class="inline-block px-12 py-4 bg-gold text-navy font-medium tracking-widest hover:bg-gold-dark transition-colors">
+                RESERVE NOW
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 border-t border-white/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <h4 class="font-serif text-2xl mb-6"><span class="text-gold">HOTEL</span> SEGUNDO</h4>
+                    <p class="text-white/60 text-sm leading-relaxed">
+                        San Diego's most distinguished boutique hotel, offering timeless luxury since 1924.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-gold tracking-widest text-sm mb-6">QUICK LINKS</h5>
+                    <ul class="space-y-3 text-sm text-white/60">
+                        <li><a href="#rooms" class="hover:text-gold transition-colors">Rooms & Suites</a></li>
+                        <li><a href="#amenities" class="hover:text-gold transition-colors">Amenities</a></li>
+                        <li><a href="#dining" class="hover:text-gold transition-colors">Dining</a></li>
+                        <li><a href="#location" class="hover:text-gold transition-colors">Location</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-gold tracking-widest text-sm mb-6">CONTACT</h5>
+                    <ul class="space-y-3 text-sm text-white/60">
+                        <li>789 Pacific Boulevard</li>
+                        <li>San Diego, CA 92101</li>
+                        <li>(619) 555-LUXE</li>
+                        <li>reservations@hotelsegundo.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-gold tracking-widest text-sm mb-6">FOLLOW US</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-white/40 text-sm">
+                <p>&copy; 2024 Hotel Segundo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set default dates (today and tomorrow)
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+
+        const formatDate = (date) => date.toISOString().split('T')[0];
+
+        document.getElementById('arrivalDate').value = formatDate(today);
+        document.getElementById('arrivalDate').min = formatDate(today);
+        document.getElementById('departureDate').value = formatDate(tomorrow);
+        document.getElementById('departureDate').min = formatDate(tomorrow);
+
+        // Update departure min date when arrival changes
+        document.getElementById('arrivalDate').addEventListener('change', function() {
+            const arrival = new Date(this.value);
+            const nextDay = new Date(arrival);
+            nextDay.setDate(nextDay.getDate() + 1);
+            document.getElementById('departureDate').min = formatDate(nextDay);
+            if (new Date(document.getElementById('departureDate').value) <= arrival) {
+                document.getElementById('departureDate').value = formatDate(nextDay);
+            }
+        });
+
+        // Handle booking form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            openBooking();
+        });
+
+        function openBooking() {
+            const arrival = document.getElementById('arrivalDate').value || formatDate(today);
+            const departure = document.getElementById('departureDate').value || formatDate(tomorrow);
+            window.location.href = `booking.html?arrival=${arrival}&departure=${departure}`;
+        }
+    </script>
+<script src="https://sim.akia.com/website_chat_js/4c7b78b9-5f9a-45cc-a0f0-dd9dc21d9371/chat.js" defer></script><a href="https://www.akia.com/powered-by-akia?hotel_name=The%20Segundo" rel="dofollow" style="display: none;">Chat with us</a><noscript> <a href="https://www.akia.com/enable-javascript" rel="dofollow">Chat with us</a></noscript>
+</body>
+</html>
