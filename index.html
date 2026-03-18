@@ -329,6 +329,34 @@
         </div>
     </section>
 
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="py-24 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="w-20 h-px bg-gold mx-auto mb-8"></div>
+            <p class="text-gold tracking-[0.3em] text-sm mb-4">EXCLUSIVE ACCESS</p>
+            <h2 class="font-serif text-4xl md:text-5xl font-light mb-6">Stay Connected</h2>
+            <p class="text-white/70 mb-10 max-w-xl mx-auto">
+                Subscribe to receive exclusive offers, seasonal packages, and curated San Diego experiences delivered to your inbox.
+            </p>
+            <form id="newsletterForm" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto mb-6">
+                <input type="email" id="newsletterEmail" placeholder="Your email address" required
+                    class="flex-1 bg-navy-light border border-white/20 px-6 py-4 text-white placeholder-white/40 focus:border-gold outline-none transition-colors text-sm tracking-wide">
+                <button type="submit" id="newsletterBtn"
+                    class="px-10 py-4 bg-gold text-navy font-medium tracking-widest text-sm hover:bg-gold-dark transition-colors whitespace-nowrap">
+                    SUBSCRIBE
+                </button>
+            </form>
+            <div id="newsletterSuccess" class="hidden">
+                <p class="text-gold font-serif text-xl mb-2">Thank You</p>
+                <p class="text-white/60 text-sm">You've been added to our exclusive mailing list.</p>
+            </div>
+            <div id="newsletterError" class="hidden">
+                <p class="text-red-400 text-sm">Please enter a valid email address.</p>
+            </div>
+            <p class="text-white/30 text-xs mt-4">We respect your privacy. Unsubscribe at any time.</p>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="py-16 px-6 border-t border-white/10">
         <div class="max-w-7xl mx-auto">
@@ -413,6 +441,41 @@
             const departure = document.getElementById('departureDate').value || formatDate(tomorrow);
             window.location.href = `booking.html?arrival=${arrival}&departure=${departure}`;
         }
+
+        // Newsletter form
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value.trim();
+            const errorEl = document.getElementById('newsletterError');
+            const successEl = document.getElementById('newsletterSuccess');
+            const formEl = this;
+
+            errorEl.classList.add('hidden');
+
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                errorEl.classList.remove('hidden');
+                return;
+            }
+
+            // Simulate submission
+            const btn = document.getElementById('newsletterBtn');
+            btn.textContent = 'SUBSCRIBING...';
+            btn.disabled = true;
+
+            setTimeout(function() {
+                formEl.style.transition = 'opacity 0.3s';
+                formEl.style.opacity = '0';
+                setTimeout(function() {
+                    formEl.classList.add('hidden');
+                    successEl.classList.remove('hidden');
+                    successEl.style.opacity = '0';
+                    successEl.style.transition = 'opacity 0.3s';
+                    requestAnimationFrame(function() {
+                        successEl.style.opacity = '1';
+                    });
+                }, 300);
+            }, 800);
+        });
     </script>
 <script src="https://sim.akia.com/website_chat_js/4c7b78b9-5f9a-45cc-a0f0-dd9dc21d9371/chat.js?sandbox=sim" defer></script><a href="https://www.akia.com/powered-by-akia?hotel_name=The%20Segundo" rel="dofollow" style="display: none;">Chat with us</a><noscript> <a href="https://www.akia.com/enable-javascript" rel="dofollow">Chat with us</a></noscript>
 </body>
